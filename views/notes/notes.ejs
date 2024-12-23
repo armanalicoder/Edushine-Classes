@@ -1,0 +1,114 @@
+<%- include("../includes/header.ejs")%>
+<section class="mb-3">
+  <div class="container">
+    <div class="row">
+      <% if(successMsg && successMsg.length){%>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+           <%=successMsg%>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <%}%>
+        <% if(errorMsg && errorMsg.length){%>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+               <%=errorMsg%>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%}%>
+      <h2 class="text-center"><b>Download Notes By Arman Ali</b></h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/dbms notes.jpg" class="card-img-top p-3 rounded-5" alt="dbmsnotes">
+            <div class="card-body align-content-center">
+              <h5 class="card-title">DBMS Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/cgnotes.jpg" class="card-img-top p-3 rounded-5" alt="cgnotes">
+            <div class="card-body">
+              <h5 class="card-title">Computer Graphics Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/cyber.jpg" class="card-img-top p-3 rounded-5" alt="cybersecuritynotes">
+            <div class="card-body">
+              <h5 class="card-title">Cyber Security Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/digitalelectronic.jpg" class="card-img-top p-3 rounded-5" alt="digitalelectronicnotes">
+            <div class="card-body">
+              <h5 class="card-title">Digital electronic Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/oops.jpg" class="card-img-top p-3 rounded-5" alt="javanotes">
+            <div class="card-body">
+              <h5 class="card-title">OOPS With Java Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/os.jpg" class="card-img-top p-3 rounded-5" alt="osnotes">
+            <div class="card-body">
+              <h5 class="card-title">Operating System Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/python.jpg" class="card-img-top p-3 rounded-5" alt="pythonnotes">
+            <div class="card-body">
+              <h5 class="card-title">Python Programming Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/tc.jpg" class="card-img-top p-3 rounded-5" alt="tcnotes">
+            <div class="card-body">
+              <h5 class="card-title">Technical Communication Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 border border-0 shadow rounded-5">
+            <img src="img/uhv.jpg" class="card-img-top p-3 rounded-5" alt="uhvnotes">
+            <div class="card-body">
+              <h5 class="card-title">UHV Notes</h5>
+              <p class="card-text">Download Notes Here.</p>
+              <a href="#" class="text-white ps-3 pe-3 pt-2 pb-2 rounded-5 mybtn">Download Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%-include("../includes/footer.ejs")%>

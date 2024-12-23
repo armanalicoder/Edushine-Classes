@@ -1,0 +1,34 @@
+<%- include("../includes/header.ejs")%>
+<section class="mb-3">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <img src="img/register.png" class="img-fluid bg-white"/>
+        </div>
+        <div class="col-sm-7 mt-3">
+            <h2>Create An Account</h2>
+            <form class="row g-3" method="post">
+                <div class="col-md-12">
+                  <label for="inputEmail4" class="form-label">Email</label>
+                  <input type="email" name="email" placeholder="Enter Email ID" required class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustomUsername" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text" id="inputGroupPrepend">@</span>
+                      <input type="text" name="username" class="form-control" placeholder="Enter Username" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                    </div>
+                  </div>
+                <div class="col-md-12">
+                  <label for="inputPassword4" class="form-label">Password</label>
+                  <input type="password" name="password" placeholder="Create a Password" required class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                  <button type="submit" class="mybtn text-light p-2 rounded-2 border border-0">Register</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>
+</section>
+<%- include("../includes/footer.ejs")%>

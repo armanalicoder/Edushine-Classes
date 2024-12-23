@@ -1,0 +1,25 @@
+<%-include("../includes/header.ejs")%>
+<section class="mb-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 embed-responsive embed-responsive-16by9 mb-5">
+                    <iframe width="100%" id="videoPlayer" class="embed-responsive-item" height="100%" src="<%=videoLink%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="mt-2 mb-4 d-flex justify-content-center">
+                        <a target="_blank" href="https://www.youtube.com/playlist?list=PLvu-LC7buiaVwdjQvjp9YS8H5V4b_k_rU" class="p-2 rounded-2 mybtn text-light">Watch Playlist</a>
+                        <a href="/" class="p-2 rounded-2 mx-2 mybtn text-light">Go Back </a>
+                    </div>
+            </div>
+            <div class="col-sm-4" >
+                <% for(let i=0;i<allData.length;i++){ %>
+                <div class="subjectTitle shadow p-4 rounded-4 my-2 active">
+                    <a href="/videos/oops-with-java/unit-<%=i+1%>" class="nav-link">
+                        <%=allData[i].unitName%>
+                    </a>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/app.js">
+</script>

@@ -1,0 +1,20 @@
+*{
+    font-family: "Poppins", serif;
+    font-style: normal;
+}
+.commoncolor {
+    color: #7e22ce;
+}
+.mybtn{
+    background-color: #7e22ce;
+    text-decoration: none;
+}
+.textunderline{
+    text-decoration: none;
+}
+.textunderline:hover{
+    text-decoration: underline 3px #7e22ce;
+}
+.subjectTitle{
+    cursor: pointer;
+}
