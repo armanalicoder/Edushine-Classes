@@ -1,0 +1,75 @@
+<%- include("../includes/header.ejs")%>
+<section>
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Search Result For : <span class="commoncolor"><%= userquery%></span> </h1>
+            <div id="searchResults" class="col-sm-12 d-flex flex-wrap justify-content-center border border-0 p-4 rounded-4 shadow">
+                <!-- //Here the search result show -->
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.getElementById("searchForm").addEventListener("submit", (event) => {
+        // event.preventDefault();
+        performSearch();
+    });
+
+    // Embed the JSON data into a JavaScript variable
+    const data = <%- JSON.stringify(data) %>;
+    console.log(data);
+
+    function updateQueryString(query) {
+        const url = new URL(window.location);
+        const params = new URLSearchParams(url.search);
+
+        if (query) {
+            params.set('query', query);  // Set the query parameter
+        } else {
+            params.delete('query');  // Remove the query parameter if no query
+        }
+
+        // Update the URL without reloading the page
+        window.history.replaceState(null, '', `${url.pathname}?${params.toString()}`);
+    }
+
+    function performSearch() {
+        const query = document.getElementById("searchInput").value.toLowerCase(); // Get the search input
+        updateQueryString(query); // Update the query string in the URL
+
+        const results = data.filter(item =>
+            item.playlistName.toLowerCase().includes(query) || item.unitName.toLowerCase().includes(query)
+        ); // Filter data
+
+        const resultsDiv = document.getElementById("searchResults");
+        resultsDiv.innerHTML = ""; // Clear previous results
+
+        if (results.length > 0) {
+            results.forEach(item => {
+                const resultItem = `
+                
+                    <div class="card mx-2 my-2 border border-0 shadow" style="width: 18rem;">
+                    <div class="card-body" id="searchResults">
+                      <h5 class="card-title">${item.playlistName}</h5>
+                      <p class="card-text">Click Here to Watch.</p>
+                      <a href="#" class="d-flex justify-content-center btn btn-primary">Watch</a>
+                    </div>
+                  </div>
+                 
+                `;
+                resultsDiv.innerHTML += resultItem;
+            });
+        } else {
+            resultsDiv.innerHTML = "<p class='text-center'>No results found. Please try a different keyword.</p>";
+        }
+    }
+
+    window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get('query');
+        if (query) {
+            document.getElementById("searchInput").value = query;
+            performSearch(); // Perform the search based on the query
+        }
+    }
+</script>

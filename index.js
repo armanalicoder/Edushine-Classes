@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const ExpressError = require("./utils/ExpressError.js");
 const wrapAsync = require("./utils/wrapAsync.js");
+const searchRouter = require("./routes/search.js");
 const notesRouter = require("./routes/notes.js");
 const videosRouter = require("./routes/videos.js");
 const userRouter = require("./routes/user.js");
@@ -95,7 +96,7 @@ app.get("/",wrapAsync(async(req,res)=>{
     res.render("homepage/index.ejs",{title : "Welcome To Edusine Classes - RRSIMT"});
 }));
 //Router for all notes
-
+app.use("/",searchRouter);
 app.use("/",userRouter);
 app.use("/notes",notesRouter);
 app.use("/videos",videosRouter);
