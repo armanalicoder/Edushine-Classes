@@ -17,7 +17,22 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user/user.js")
 require('dotenv').config();
 const { title } = require("process");
+const { default: axios } = require("axios");
 const port =process.env.PORT || 8000;
+const url = 'https://edushineclasses.onrender.com';
+const interval = 30000;
+function reloadWebsite(){
+    axios
+    .get(url)
+    .then((response)=>{
+        console.log("Website reloaded");
+    })
+    .catch(err=>{
+        console.log("Error : ",err);
+    })
+}
+setInterval(reloadWebsite,interval);
+
 
 const dbUrl = process.env.ATLASDB_URL;
 main().then(()=>{
