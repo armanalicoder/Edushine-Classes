@@ -18,3 +18,14 @@
 .subjectTitle{
     cursor: pointer;
 }
+/*Custom Scroll Bar */
+::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-track{
+    background-color: rgb(248, 245, 245);
+}
+::-webkit-scrollbar-thumb{
+    background-color: lightgray;
+    border-radius: 20px;
+}
