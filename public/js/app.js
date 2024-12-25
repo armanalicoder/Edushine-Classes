@@ -30,3 +30,21 @@ videoID.forEach((video)=>{
         .catch((error) => console.error("Error:", error));
     });
 })
+// Disable right-click
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    window.alert("Don't right click");
+  });
+
+  // Disable specific key combinations
+  document.addEventListener("keydown", function (e) {
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (
+      e.key === "F12" || 
+      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) || 
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+      window.alert("Don't right click")
+    }
+  });
