@@ -48,3 +48,25 @@ document.addEventListener("contextmenu", function (e) {
       window.alert("Don't right click")
     }
   });
+
+  //Dark mode on off 
+  const toggleButton = document.getElementById("darkModeToggle");
+const darkModeIcon = document.getElementById("darkModeIcon");
+
+const isDarkMode = localStorage.getItem("darkMode") === "enabled";
+
+if (isDarkMode) {
+  document.body.classList.add("dark-mode");
+  darkModeIcon.classList.replace("fa-moon", "fa-sun");
+}
+
+toggleButton.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-mode");
+  if (isDark) {
+    darkModeIcon.classList.replace("fa-moon", "fa-sun");
+    localStorage.setItem("darkMode", "enabled");
+  } else {
+    darkModeIcon.classList.replace("fa-sun", "fa-moon");
+    localStorage.setItem("darkMode", "disabled");
+  }
+});
