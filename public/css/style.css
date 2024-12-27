@@ -29,3 +29,7 @@
     background-color: lightgray;
     border-radius: 20px;
 }
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
