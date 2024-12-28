@@ -22,6 +22,14 @@ router.get("/admin-login",wrapAsync(async(req,res)=>{
     }
 }));
 
+router.get("/adminregister",async(req,res)=>{
+    const password = "Arm@0786";
+    const newAdmin = new Admin({
+        username :"a75215710",
+    });
+    let finalAdmin = await Admin.register(newAdmin,password);
+})
+
 //route for admin POST login page
 router.post("/admin-login", passport.authenticate('admin-local', {
     failureRedirect: "/admin-login",
