@@ -66,7 +66,19 @@ router.get("/admin-logout",wrapAsync(async(req,res,next)=>{
 
 router.get("/admin-dashboard/upload-videos",(req,res)=>{
     const currAdmin= req.session.admin;
-    res.render("admin/upload/playlist.ejs",{title : "Upload Videos | Edushine Classes",currAdmin});
+    if(req.user){
+        req.flash("error","you are not authorized to access this page.")
+       return res.redirect("/");
+    }
+    if(req.session.admin==undefined){
+        req.flash("error","you are not authorized to access this page.")
+       return res.redirect("/");
+    }
+    if(req.session.admin.role==="admin"){
+        req.flash("success","You're already logged in as admin.");
+        return res.render("admin/upload/playlist.ejs",{title : "Upload Videos | Edushine Classes",currAdmin});
+    }
+    
 })
 
 router.post("/admin-dashboard/upload-videos",upload.single('playlistImage'),wrapAsync(async(req,res)=>{
