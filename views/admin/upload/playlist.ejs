@@ -1,0 +1,34 @@
+<%- include("../../includes/adminheader.ejs")%>
+<section>
+    <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <img src="../img/uploadpng.png" class="img-fluid"/>
+                </div>
+               <div class="col-sm-7">
+                <h3>Upload New Playlist</h3>
+                <form class="row g-3" method="post" action="/admin-dashboard/upload-videos" enctype="multipart/form-data">
+                    <div class="col-md-12">
+                      <label for="playlistName" class="form-label">Playlist Name</label>
+                      <input type="text" name="playlistName" placeholder="Enter Playlist Name" class="form-control" id="playlistName">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="playlistDescription" class="form-label">Playlist Description</label>
+                        <textarea type="text" name="playlistDescription" placeholder="Enter Playlist Description" class="form-control" id="playlistDescription"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="playlistURL" class="form-label">Playlist URL</label>
+                        <input type="text" name="playlistURL" placeholder="Enter Playlist Link" class="form-control" id="playlistDescription"/>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="uploadimg" class="form-label">Upload Image</label>
+                        <input type="file" name="playlistImage" placeholder="Upload Thumbnail Image" class="form-control" id="uploadimg">
+                      </div>
+                    <div class="col-12 d-flex justify-content-center">
+                      <button type="submit" class="text-white p-2 mybtn rounded-4 border border-0 w-100">Upload Playlist</button>
+                    </div>
+                  </form>
+               </div>
+            </div>
+    </div>
+</section>

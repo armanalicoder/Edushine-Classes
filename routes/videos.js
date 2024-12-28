@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
+const Playlist = require("../models/admin/upload/playlistModel.js");
 const CG = require("../models/cgModel.js");
 const OS = require("../models/osModel.js");
 const DBMS = require("../models/dbmsModel.js");
@@ -11,8 +12,10 @@ const python = require("../models/pythonModel.js");
 const uhv = require("../models/uhvModel.js");
 
 //Route for showing all videos 
-router.get("/",(req,res)=>{
-    res.render("playlist/playlist.ejs",{title : "Videos |Edushine Classes"});
+router.get("/",async(req,res)=>{
+    let data = await Playlist.find();
+    // console.log(data[0].playlistImage.url);
+    res.render("playlist/playlist.ejs",{title : "Videos | Edushine Classes",data});
 });
 
 

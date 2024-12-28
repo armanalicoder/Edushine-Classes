@@ -3,77 +3,18 @@
     <div class="container">
         <h2 class="text-center">Popular <span class="commoncolor">Videos</span></h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
+              <% for(let i =0;i<data.length;i++){%>
             <div class="col">
               <div class="card h-100 border border-0 shadow rounded-5">
-                <img src="img/cg.jpg" class="card-img-top p-3 rounded-5" alt="computer graphics">
+                <img src="<%=data[i].playlistImage.url%>" class="card-img-top p-3 rounded-5" alt="computer graphics">
                 <div class="card-body">
-                  <h5 class="card-title">Computer Graphics Playlist (BCS053)</h5>
-                  <p class="card-text">Introduction and Line Generation,Transformations....</p>
-                  <a href="/videos/computer-graphics/unit-1" class="rounded-pill border border-0 text-light p-2 mybtn">Watch Now</a>
-                </div>
-                
+                  <h5 class="card-title"><%= data[i].playlistName%></h5>
+                  <p class="card-text"><%= data[i].playlistDescription%></p>
+                  <a href="<%=data[i].playlistURL%>" class="rounded-pill border border-0 text-light p-2 mybtn">Watch Now</a>
+                </div> 
               </div>
             </div>
-            <div class="col">
-              <div class="card h-100 border border-0 shadow rounded-5">
-                <img src="img/dbms.jpg" class="card-img-top p-3 rounded-5" alt="dbms">
-                <div class="card-body">
-                  <h5 class="card-title">Database Management System Playlist (BCS501)</h5>
-                  <p class="card-text">Introduction,RDBMS, Normalization,Transaction,Concurrency..</p>
-                  <a href="/videos/Database-Management-System/unit-1" class="rounded-pill border border-0 text-light p-2 mybtn">Watch Now</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h- border border-0 shadow rounded-5">
-                <img src="img/cyber u1.jpg" class="card-img-top p-3 rounded-5" alt="Cyber Security">
-                <div class="card-body">
-                  <h5 class="card-title">Cyber Security Playlist (BCC301/BCC401)</h5>
-                  <p class="card-text">In this Playlist we have complete all the syllabus of aktu..</p>
-                  <a href="/videos/cyber-security/unit-1" class="rounded-pill border border-0 text-light p-2 mybtn">Watch Now</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100 border border-0 shadow rounded-5">
-                <img src="img/oops with java.jpg" class="card-img-top p-3 rounded-5" alt="oopswithjava">
-                <div class="card-body">
-                  <h5 class="card-title">OOPS With Java Playlist (BCS403)</h5>
-                  <p class="card-text">In this Playlist you can learn all core concept of java as well as advanced topic Spring, Spring Boot...</p>
-                  <a href="/videos/oops-with-java/unit-1" class="rounded-pill border border-0 text-light p-2 mybtn">Watch Now</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border border-0 shadow rounded-5">
-                  <img src="img/os u1.jpg" class="card-img-top p-3 rounded-5" alt="Operating System">
-                  <div class="card-body">
-                    <h5 class="card-title">Operating System Playlist (BCS401)</h5>
-                    <p class="card-text">In this Playlist you can learn all basic and advanced topic of Operating System As per Aktu Syllabus...</p>
-                    <a href="/videos/operating-system/unit-1" class="rounded-pill border border-0 text-light p-2 mybtn">Watch Now</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card h-100 border border-0 shadow rounded-5">
-                  <img src="img/python u1.jpg" class="card-img-top p-3 rounded-5" alt="Python Programming">
-                  <div class="card-body">
-                    <h5 class="card-title">Python Programming Playlist (BCC302/BCC402)</h5>
-                    <p class="card-text">In this Playlist you can learn all core concept of python programming as well as per aktu syllabus.</p>
-                    <a href="/videos/python-programming/unit-1" class="rounded-pill border border-0 text-light p-2 mybtn">Watch Now</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card h-100 border border-0 shadow rounded-5">
-                  <img src="img/uhv u1.jpg" class="card-img-top p-3 rounded-5" alt="Universal Human Value">
-                  <div class="card-body">
-                    <h5 class="card-title">Universal Human Value (BVE301/BVE302)</h5>
-                    <p class="card-text">In this Playlist you can learn all core concept of python programming as well as per aktu syllabus.</p>
-                    <a href="/videos/universal-human-value/unit-1" class="rounded-pill border border-0 text-light p-2 mybtn">Watch Now</a>
-                  </div>
-                </div>
-              </div>
+            <%}%>
           </div>
     </div>
 </section>

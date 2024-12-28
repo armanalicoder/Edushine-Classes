@@ -4,6 +4,10 @@ const flash = require("connect-flash");
 const Admin = require("../models/admin/adminModel.js");
 const wrapAsync = require("../utils/wrapAsync");
 const passport = require("passport");
+const multer  = require('multer');
+const {storage} = require("../cloudConfig.js");
+const Playlist = require("../models/admin/upload/playlistModel.js");
+const upload = multer({ storage});
 
 router.use(flash());
 
@@ -18,7 +22,7 @@ router.get("/admin-login",wrapAsync(async(req,res)=>{
     }
     if(req.session.admin.role==="admin"){
         req.flash("success","You're already logged in as admin.");
-        return res.redirect("/");
+        return res.redirect("/admin-dashboard");
     }
 }));
 
@@ -42,7 +46,7 @@ router.get("/admin-dashboard", wrapAsync(async(req, res) => {
         return res.redirect("/");
     }
     if(currAdmin.role=="admin"){
-        return res.render("admin/dashboard.ejs", { title: "Welcome to Admin Dashboard" });
+        return res.render("admin/dashboard.ejs", { title: "Welcome to Admin Dashboard" , currAdmin});
     }
     req.flash("error","you are not auuthorized to access this page.")
     return res.redirect("/")
@@ -57,6 +61,30 @@ router.get("/admin-logout",wrapAsync(async(req,res,next)=>{
         req.flash("error","Admin Log out Successfully!");
         return res.redirect("/");
     })
+}));
+
+
+router.get("/admin-dashboard/upload-videos",(req,res)=>{
+    const currAdmin= req.session.admin;
+    res.render("admin/upload/playlist.ejs",{title : "Upload Videos | Edushine Classes",currAdmin});
+})
+
+router.post("/admin-dashboard/upload-videos",upload.single('playlistImage'),wrapAsync(async(req,res)=>{
+    let {playlistName,playlistDescription,playlistURL} = req.body;
+    const path = req.file.path;
+    const filename = req.file.filename;
+    let uploadedPlaylist = new Playlist({
+        playlistName : playlistName,
+        playlistDescription : playlistDescription,
+        playlistURL : playlistURL,
+        playlistImage :{
+            url : path,
+            filename : filename
+        }
+    });
+    await uploadedPlaylist.save();
+    
+    res.send("Playlist Saved Now Check")
 }));
 
 module.exports = router;
