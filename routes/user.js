@@ -49,7 +49,7 @@ router.post("/login",passport.authenticate("local",{
 }),
 async (req,res)=>{
     req.flash("success",`Welcome back ${req.user.username}`);
-    res.redirect("/");
+    res.redirect("/notes");
 });
 
 //router fou user logout
