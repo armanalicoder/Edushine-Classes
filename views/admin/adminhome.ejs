@@ -1,5 +1,5 @@
 <%- include("../includes/header.ejs")%>
-<section>
+<section class="mb-4">
     <div class="container">
         <div class="row">
             <% if(successMsg && successMsg.length){%>
@@ -14,20 +14,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <%}%>
-            <h1 class="text-center">Login to Admin Panel</h1>
-            <div class="col-sm-12 d-flex justify-content-center">
-                <form method="post" action="/admin-login">
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Admin Username</label>
-                      <input type="text" class="form-control" name="username" placeholder="Enter Admin Username " id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="col-sm-6">
+                <img src="img/admin.png" class="img-fluid"/>
+            </div>
+            <div class="col-sm-6 my-auto shadow p-4 rounded">
+                <h3>Login to Admin Panel</h3>
+                <form class="row g-3" method="post" action="/admin-login">
+                    <div class="col-md-12">
+                        <label for="validationCustomUsername" class="form-label">Admin Username</label>
+                        <div class="input-group has-validation">
+                          <span class="input-group-text" id="inputGroupPrepend">@</span>
+                          <input type="text" name="username" class="form-control" placeholder="Enter Username" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                        </div>
+                      </div>
+                    <div class="col-md-12">
+                      <label for="inputPassword4" class="form-label">Password</label>
+                      <input type="password" name="password" placeholder="Create a Password" required class="form-control" id="inputPassword4">
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" placeholder="Enter Password " name="password" class="form-control" id="exampleInputPassword1">
+                    <div class="col-md-12 d-flex justify-content-center">
+                      <button type="submit" class="mybtn text-light p-2 rounded-2 border border-0 w-100">Login as Admin</button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login as Admin</button>
                   </form>
             </div>
         </div>
     </div>
 </section>
+<%- include("../includes/footer.ejs")%>
