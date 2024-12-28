@@ -13,6 +13,7 @@ const Admin = require("./models/admin/adminModel.js");
 const ejsMate = require('ejs-mate');
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const Playlist = require("./models/admin/upload/playlistModel.js");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
@@ -114,7 +115,8 @@ app.use((req, res, next) => {
 
 //route for homepage
 app.get("/",wrapAsync(async(req,res)=>{
-    res.render("homepage/index.ejs",{title : "Welcome To Edusine Classes - RRSIMT"});
+    let data = await Playlist.find();
+    res.render("homepage/index.ejs",{title : "Welcome To Edusine Classes - RRSIMT",data});
 }));
 
 //Router for all notes
