@@ -7,7 +7,7 @@ function isLoggedIn(req, res, next) {
     req.flash("error", "You must be logged in.");
     res.redirect("/login");
 }
-router.get("/", isLoggedIn, (req, res) => {
+router.get("/", (req, res) => {
     // console.log(req.user);
     res.render("notes/notes.ejs",{title : "Notes - Edushine Classes"});
 });
