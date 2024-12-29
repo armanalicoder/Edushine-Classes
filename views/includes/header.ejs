@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-    <meta name="google-site-verification" content="m1mbJ5AgU-klEnhUYPMCzcvIEbeHP-DpVUS2_FzbO84" />
     <style>
         .my-slider-progress {
           background: #ccc;
@@ -25,15 +24,6 @@
           width: 0;
         }
       </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHHQ7M31D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-RJHHQ7M31D');
-</script>
   </head>
     <body>
         <!--Top navbar start-->
@@ -53,9 +43,16 @@
                     <a class="nav-link textunderline text-dark" href="/videos">Videos</a>
                     <!-- <a class="nav-link text-dark" href="#projects">Projects</a> -->
                     <a class="nav-link textunderline text-dark" href="/contact">Contact Us</a>
-                    <!-- <button class="nav-link mb-2 me-2 rounded-2 mybtn text-light p-2 theme-toggle-btn" id="theme-toggle" type="submit"><i class="fa-regular fa-moon"></i></button> -->
                     <%if(!currUser){%>
-                    <a href="/login" class="nav-link mb-2 rounded-2 me-2 mybtn text-light text-center">Login</a>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link mb-2 me-2 rounded-2 mybtn text-light text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Login
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/login"><i class="fa-solid fa-user fa-shake"></i> User Login</a></li>
+                          <li><a class="dropdown-item" href="/admin-login"><i class="fa-solid fa-lock fa-shake"></i> Admin Login</a></li>
+                        </ul>
+                      </li>
                     <a href="/signup" class=" nav-link mb-2 me-2 rounded-2 mybtn text-light text-center">Signup</a>
                     <%}%>
                     <% if(currUser){%>
@@ -63,8 +60,8 @@
                     <%}%>
                 </div>
                 <form class="d-flex" id="searchForm" role="search" method="get" action="/search">
-                  <input class="form-control me-2 mx-2" id="searchInput" name="query" type="search" placeholder="Search.." aria-label="Search">
-                  <button class="nav-link mb-2 me-2 rounded-2 mybtn text-light p-2" onclick="performSearch()" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input class="form-control me-2 mx-2" id="searchInput" name="query" type="search" placeholder="Search.." aria-label="Search">
+                    <button class="nav-link mb-2 me-2 rounded-2 mybtn text-light p-2" onclick="performSearch()" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 </div>
             </nav>
@@ -72,4 +69,3 @@
         </section>
     </body>
 </html>
-   

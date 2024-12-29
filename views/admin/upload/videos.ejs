@@ -1,0 +1,50 @@
+<%- include("../../includes/adminheader.ejs")%>
+<section>
+    <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <img src="../img/videoupload.png" class="img-fluid"/>
+                </div>
+               <div class="col-sm-7">
+                <h3>Upload New Videos</h3>
+                <form class="row g-3" method="post" action="/admin-dashboard/upload-videos">
+                    <div class="col-md-12">
+                        <label for="subjectName" class="form-label">Choose Subject</label>
+                        <select class="form-select" name="subject" required>
+                            <option selected value="">Select Subject </option>
+                            <option value="CG">Computer Graphics</option>
+                            <option value="DBMS">Database Management System</option>
+                            <option value="CS">Cyber Security</option>
+                            <option value="OOPS">OOPS With java</option>
+                            <option value="OS">Operating System</option>
+                            <option value="python">Python Programming</option>
+                            <option value="uhv">Universal Human Value</option>
+                            <option value="DS">Data Structure</option>
+                        </select>
+                      </div>
+                    <div class="col-md-12">
+                      <label for="playlistName" class="form-label">Playlist Name</label>
+                      <input type="text" name="playlistName" placeholder="Enter Playlist Name" required class="form-control" id="playlistName">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="videoTitle" class="form-label">Title</label>
+                        <input type="text" name="videoTitle" placeholder="Ex- Unit - 1 Introduction" required class="form-control" id="videoTitle"/>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="videoURL" class="form-label">Video URL</label>
+                        <input type="text" name="videoURL" required placeholder="Ex- https://www.youtube.com/embed/xO1fie_BGu8?si=h7roJi4ldA_rnhQd" class="form-control" id="videoURL"/>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="unitName" class="form-label">Unit</label>
+                        <input type="text" name="videoUnit" required placeholder="Ex- unit-1" class="form-control" id="unitName">
+                      </div>
+                    <div class="col-12 d-flex justify-content-center">
+                      <button type="submit" class="text-white p-2 mybtn rounded-4 border border-0 w-100">Upload Video</button>
+                    </div>
+                  </form>
+               </div>
+            </div>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/app.js"></script>

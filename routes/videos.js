@@ -9,6 +9,7 @@ const DBMS = require("../models/dbmsModel.js");
 const OOPS = require("../models/oopsModel.js");
 const CS = require("../models/csModel.js");
 const python = require("../models/pythonModel.js");
+const DS = require("../models/dsModel.js");
 const uhv = require("../models/uhvModel.js");
 
 //Route for showing all videos 
@@ -18,6 +19,22 @@ router.get("/",async(req,res)=>{
     res.render("playlist/playlist.ejs",{title : "Videos | Edushine Classes",data});
 });
 
+//route for showing DS Videos page 
+router.get("/data-structure/:id",wrapAsync(async(req,res,next)=>{
+    let {id} = req.params;
+    const data = await DS.find({unit : id});
+    const allData = await DS.find();
+    // console.log(data);
+    if(data[0]==null){
+        next(new ExpressError(404,"This Page Couldn't Found!"));
+    }
+    else{
+    const videoLink = data[0].url;
+    const unitName = data[0].unitName;
+    // console.log(videoLink);
+    res.render("videos/ds.ejs",{videoLink,unitName,allData,title:`${data[0].playlistName} - Edushine Classes`});
+    }
+}));
 
 //Route for Computer graphics page
 router.get("/computer-graphics/:id",wrapAsync(async(req,res,next)=>{

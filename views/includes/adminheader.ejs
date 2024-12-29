@@ -39,10 +39,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav mx-2 my-2" id="navmenu">
                     <a class="nav-link textunderline text-dark" aria-current="page" href="/admin-dashboard">Home</a>
-                    <a class="nav-link textunderline text-dark"  href="/admin-dashboard/upload-notes">Upload Notes</a>
-                    <a class="nav-link textunderline text-dark" href="/admin-dashboard/upload-videos">Upload Videos</a>
+                    <a class="nav-link textunderline text-dark"  href="/admin-dashboard/upload-videos">Upload Videos</a>
+                    <a class="nav-link textunderline text-dark" href="/admin-dashboard/upload-playlist">Upload Playlist</a>
                     <!-- <a class="nav-link text-dark" href="#projects">Projects</a> -->
-                    <a class="nav-link textunderline text-dark" href="/">GitHub</a>
+                    <a class="nav-link textunderline text-dark" href="#">GitHub</a>
                     <%if(!currAdmin){%>
                     <a href="/admin-login" class="nav-link mb-2 rounded-2 me-2 mybtn text-light text-center">Login</a>
                     <%}%>
@@ -50,10 +50,10 @@
                     <a href="/admin-logout" class=" nav-link mb-2 me-2 rounded-2 mybtn text-light text-center">Logout</a>
                     <%}%>
                 </div>
-                <form class="d-flex" id="searchForm" role="search" method="get" action="/search">
+                <!-- <form class="d-flex" id="searchForm" role="search" method="get" action="/search">
                     <input class="form-control me-2 mx-2" id="searchInput" name="query" type="search" placeholder="Search.." aria-label="Search">
                     <button class="nav-link mb-2 me-2 rounded-2 mybtn text-light p-2" onclick="performSearch()" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
+                </form> -->
                 </div>
             </nav>
             <hr/>

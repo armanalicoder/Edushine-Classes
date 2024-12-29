@@ -8,6 +8,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <%}%>
+                <% if(errorMsg && errorMsg.length){%>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                       <%=errorMsg%>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <%}%>
 
             <h1 class="text-center">Welcome to admin panel</h1>
             <div class="col-sm-12">
@@ -16,3 +22,5 @@
         </div>
     </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/app.js"></script>
