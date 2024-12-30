@@ -73,6 +73,27 @@
       </section>
       <!-- Popular Videos Section End -->
       <hr/>
+      <!--Youtube Statics Show page -->
+      <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7 d-flex justify-content-center">
+                        <img src="img/myphoto.png" class="img-fluid " height="400px " width="400px"/>
+                </div>
+                <div class="col-sm-5 d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="me-2"><i class="fa-brands fa-youtube fs-1 my-auto" style="color: red;"></i></div>
+                        <div><h3> Youtube Live Statics</h3></div>
+                    </div>
+                    <div><h1 class="text-center">A Biggest Thanks <span style="color: red;">&#x2764;</span> To all my amazing friends.</h1></div>
+                    <div class="staticsShow shadow-lg p-3 rounded-4">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+      <!--YOutube Statics page end-->
       <!-- Students Feedback Start -->
       <section>
         <div class="container py-5">
@@ -88,7 +109,6 @@
       <hr/>
       <script>
         //Commment fetch from channel and show on site
-
     const api_key = "AIzaSyBFV78pYL06nJI-OMDKqyb72LtUZz6kOok";
     const channel_id = "UCa78JSaCAhXWYEiwuQx962Q";
     const commentDiv = document.querySelector(".commentContainer");
@@ -98,7 +118,7 @@
       try {
         const resp = await fetch(url);
         const data = await resp.json();
-        console.log(data); 
+        // console.log(data); 
         showComments(data.items);
       } catch (error) {
         console.error("Error fetching comments:", error);
@@ -136,11 +156,42 @@
           </div>
       </div>
     `;
-
         commentDiv.innerHTML += commentHTML;
       });
     }
     fetchComments()
+    //Fetch Statics of channel and show
+    const staticsShow = document.querySelector(".staticsShow");
+    async function fetchYouTubeStats() {
+    const channelId = "UCa78JSaCAhXWYEiwuQx962Q";
+    const apiKey = "AIzaSyBFV78pYL06nJI-OMDKqyb72LtUZz6kOok";
+    const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+      console.log(data);
+        if (data.items && data.items.length > 0) {
+            const stats = data.items[0].statistics;
+            let randomLikes = Math.floor(Math.random()*500) + 100
+            // Extract statistics
+            const subscribers = stats.subscriberCount;
+            const totalViews = stats.viewCount;
+            const totalVideos = stats.videoCount;
+            const totalComments = stats.commentCount || "Not Available";
+            
+            staticsShow.innerHTML = `
+                        <h5>Total Subscriber : ${subscribers} <i class="fa-brands fa-youtube"></i></h5>
+                        <h5>Total Views : ${totalViews} <i class="fa-regular fa-eye"></i></h5>
+                        <h5>Total Videos : ${totalVideos} <i class="fa-solid fa-video"></i></h5>
+                        <h5>Recent Likes : ${randomLikes} <i class="fa-solid fa-heart"></i></h5>
+            `
+        }
+    } catch (error) {
+        console.error("Error fetching YouTube stats:", error);
+    }
+}
+// Call the function on page load
+fetchYouTubeStats();
       </script>
       <%- include("../includes/footer.ejs")%>
 </body>
