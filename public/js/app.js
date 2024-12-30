@@ -49,24 +49,65 @@ document.addEventListener("contextmenu", function (e) {
     }
   });
 
-  //Dark mode on off 
-  const toggleButton = document.getElementById("darkModeToggle");
-const darkModeIcon = document.getElementById("darkModeIcon");
-
-const isDarkMode = localStorage.getItem("darkMode") === "enabled";
-
-if (isDarkMode) {
-  document.body.classList.add("dark-mode");
-  darkModeIcon.classList.replace("fa-moon", "fa-sun");
-}
-
-toggleButton.addEventListener("click", () => {
-  const isDark = document.body.classList.toggle("dark-mode");
-  if (isDark) {
-    darkModeIcon.classList.replace("fa-moon", "fa-sun");
-    localStorage.setItem("darkMode", "enabled");
-  } else {
-    darkModeIcon.classList.replace("fa-sun", "fa-moon");
-    localStorage.setItem("darkMode", "disabled");
-  }
-});
+ //Dark Feature implement logic 
+ const toggleButton = document.getElementById("darkModeToggle");
+ let cards = document.querySelectorAll(".card");
+ let navSection = document.querySelector(".navSection");
+ let navLink = document.querySelectorAll(".nav-link");
+ let navheadingColor = document.querySelector(".commoncolor");
+ const darkModeIcon = document.getElementById("darkModeIcon");
+ 
+ // Retrieve dark mode state from localStorage
+ const isDarkMode = localStorage.getItem("darkMode") === "enabled";
+ 
+ // Apply dark mode if it was enabled
+ if (isDarkMode) {
+   document.body.classList.add("dark-mode");
+   cards.forEach(card => {
+     card.classList.add("dark-mode");
+   });
+   darkModeIcon.classList.replace("fa-moon", "fa-sun");
+   navSection.classList.add("bg-black");
+   navSection.classList.remove("bg-white");
+   navheadingColor.classList.add("text-white");
+   darkModeIcon.classList.add("text-white");
+   navLink.forEach(alllink => {
+     alllink.classList.add("text-white");
+     alllink.classList.remove("text-black");
+   });
+ }
+ 
+ // Toggle dark mode on button click
+ toggleButton.addEventListener("click", () => {
+   const isDark = document.body.classList.toggle("dark-mode");
+   cards.forEach(card => {
+     card.classList.toggle("dark-mode");
+   });
+   if (isDark) {
+     darkModeIcon.classList.replace("fa-moon", "fa-sun");
+     navSection.classList.add("bg-black");
+     navSection.classList.remove("bg-white");
+     navheadingColor.classList.add("text-white");
+     darkModeIcon.classList.add("text-white");
+     navLink.forEach(alllink => {
+       alllink.classList.add("text-white");
+       alllink.classList.remove("text-black");
+     });
+     localStorage.setItem("darkMode", "enabled");
+   } else {
+     darkModeIcon.classList.replace("fa-sun", "fa-moon");
+     cards.forEach(card => {
+       card.classList.add("shadow");
+     });
+     navSection.classList.remove("bg-black");
+     navSection.classList.add("bg-white");
+     navheadingColor.classList.remove("text-white");
+     navLink.forEach(alllink => {
+       alllink.classList.add("text-black");
+       alllink.classList.remove("text-white");
+     });
+     darkModeIcon.classList.remove("text-white");
+     localStorage.setItem("darkMode", "disabled");
+   }
+ });
+ 

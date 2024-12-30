@@ -5,6 +5,9 @@
 .commoncolor {
     color: #7e22ce;
 }
+.commoncolor:hover{
+    color: #7e22ce;
+}
 .mybtn{
     background-color: #7e22ce;
     text-decoration: none;
@@ -18,7 +21,7 @@
 .subjectTitle{
     cursor: pointer;
 }
-/*Custom Scroll Bar */
+
 ::-webkit-scrollbar{
     width: 12px;
 }
@@ -29,7 +32,16 @@
     background-color: lightgray;
     border-radius: 20px;
 }
+/* General Dark Mode Styles */
 body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #121212; /* Dark background for the body */
+    color: #ffffff; /* Light text color */
   }
+.card.dark-mode{
+    background-color: black;
+    color: white;
+}
+.navSection.dark-mode{
+    background-color: black;
+    color: white;
+}
