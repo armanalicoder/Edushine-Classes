@@ -106,6 +106,30 @@
           </div>
       </section>
       <!-- Stduents Feedback End -->
+                <!-- New Year Modal -->
+<div class="modal fade" id="newYearModal" tabindex="-1" aria-labelledby="newYearModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newYearModalLabel">🎉 Happy New Year! 2025 🎉</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="img/happynewyear.png" alt="Happy New Year" class="img-fluid mb-3" />
+        <p>Welcome to <strong>EduShine Classes</strong>! 🎊 Start your year with knowledge and growth. Explore our latest features today!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Explore Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var myModal = new bootstrap.Modal(document.getElementById('newYearModal'), {});
+    myModal.show();
+  });
+</script>
       <hr/>
       <script>
         //Commment fetch from channel and show on site
